@@ -42,7 +42,7 @@ var date_diff_indays = function(date1, date2) {
 }
 
 
-d3.tsv("click_times.tsv", function(error, data) {
+d3.tsv("lights_times_sample.tsv", function(error, data) {
     var firstDate = new Date(data[0].Time);
     var lastDate = new Date(data[data.length-1].Time);
     var numDaysRecorded = date_diff_indays(firstDate, lastDate);
@@ -56,16 +56,14 @@ d3.tsv("click_times.tsv", function(error, data) {
       .enter().append("line")
       .attr("class", "point")
       .attr("stroke-width", 2)
-      .attr("stroke-opacity", 0.1)
-      .attr("stroke", "yellow")
+      .attr("stroke-opacity", 0.5)
+      .attr("stroke", "green")
       .attr("x1", function(d) {
           //Gotta coerce from string (in "Time column") to actual Date object
           temp_date = new Date(d.Time);
           //Hilarious formula for a 0–1 decimal of the time as a percentage of the day. Acts as the x coordinate when multiplied by the chart's width.
           var frac_of_day = (temp_date.getHours()/24.0) + (temp_date.getMinutes()/1440.0) + (temp_date.getSeconds()/86400.0);
-          //TODO: constrain to 7:30–18:00 (not all 24 hours of day)
-          frac_of_day = frac_of_day-(7.5/24); //lop off midnight–7:30am
-          frac_of_day = frac_of_day*(24/10.5); //stretch 10.5 hour period to whole 0–1
+          frac_of_day = frac_of_day*(24/8); //stretch first 8 hour period to whole 0–1
           return (frac_of_day*width);
       })
       //Would be nice if I could set x2=x1 for vertical line, but gotta repeat
@@ -74,9 +72,7 @@ d3.tsv("click_times.tsv", function(error, data) {
           temp_date = new Date(d.Time);
           //Hilarious formula for a 0–1 decimal of the timestamp as a percentage of the day. Acts as the x coordinate when multiplied by the chart's width.
           var frac_of_day = (temp_date.getHours()/24.0) + (temp_date.getMinutes()/1440.0) + (temp_date.getSeconds()/86400.0);
-          //TODO: constrain to 7:30–18:00 (not all 24 hours of day)
-          frac_of_day = frac_of_day-(7.5/24); //lop off midnight–7:30am
-          frac_of_day = frac_of_day*(24/10.5); //stretch 10.5 hour period to whole 0–1
+          frac_of_day = frac_of_day*(24/8); //stretch first 8 hour period to whole 0–1
           return (frac_of_day*width);
       })
       .attr("y1",  function(d) {
