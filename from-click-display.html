@@ -4,7 +4,7 @@
 
 body {
       font: 10px sans-serif;
-      background-color: #170413;
+      background-color: #47140f;
 }
 
 .axis path,
@@ -55,9 +55,9 @@ d3.tsv("lights_times_sample.tsv", function(error, data) {
       .data(data)
       .enter().append("line")
       .attr("class", "point")
-      .attr("stroke-width", 2)
-      .attr("stroke-opacity", 0.5)
-      .attr("stroke", "green")
+      .attr("stroke-width", .3)
+      .attr("stroke-opacity", 0.9)
+      .attr("stroke", "#a3fca2")
       .attr("x1", function(d) {
           //Gotta coerce from string (in "Time column") to actual Date object
           temp_date = new Date(d.Time);
