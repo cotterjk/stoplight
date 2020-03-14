@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- <img id="webcam-feed" crossOrigin = "Anonymous" src="http://192.168.1.74:8020/videoView"> -->
+<img crossorigin="anonymous" id="webcam-feed" src="http://192.168.1.74:8020/videoView">
+<canvas id="myCanvas" width="250" height="300"></canvas>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var seenBox, sb_R, sb_G, sb_B, i;
+    var sb_R, sb_G, sb_B = 0;
+    var isLightRed = false;
+    var nowStamp = new Date().getTime();
+    ctx.strokeStyle = "yellow";
+    var image = document.getElementById("webcam-feed");
+
+    var drawWebCamFrameFirst = function () {
+        ctx.drawImage(image, 0, -240);
+    };
+
+    var drawWebCamFrame = function () {
+        ctx.clearRect(0, 0, c.width, c.height);
+        image = document.getElementById("webcam-feed");
+        ctx.drawImage(image, 0, -240);
+    };
+
+    var checkColor = function () {
+        sb_R = sb_G = sb_B = 0;
+        // ctx.strokeRect(2,3,6,17); //see where I'm gathering data from, taints data
+        seenBox = ctx.getImageData(2,3,6,17);
+        for (i = 0; i < seenBox.data.length; i+=4) {
+            sb_R += seenBox.data[i];
+            sb_G += seenBox.data[i+1];
+            sb_B += seenBox.data[i+2];
+        }
+        sb_R /= (seenBox.data.length/4);
+        sb_G /= (seenBox.data.length/4);
+        sb_B /= (seenBox.data.length/4);
+        // console.log(seenBox);
+        // console.log(sb_R + ", " + sb_G + ", " + sb_B );
+        sb_avg = 'rgb(' + sb_R + ',' + sb_G + ',' + sb_B + ')';
+        ctx.fillStyle = sb_avg;
+        ctx.clearRect(50, 50, 100, 100);
+        ctx.fillRect(50,50,100,100);
+
+        if (sb_R > sb_G) {
+            if (!isLightRed) {
+                isLightRed = true;
+                nowStamp = new Date().toLocaleString("en-US", { hour12: false });
+                console.log("TURNED RED: " + nowStamp);
+            }
+        } else {
+            isLightRed = false;
+        }
+    }
+
+    var reloadAndAnalyse = function () {
+        drawWebCamFrame();
+        checkColor();
+    }
+
+    window.onload = function() {
+        console.log("—————PAGE LOADED: " + new Date().toLocaleString());
+        drawWebCamFrameFirst();
+        setInterval(reloadAndAnalyse, 1000);
+    }
+
+</script>
+</body>
+</html>
