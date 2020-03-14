@@ -1,6 +1,6 @@
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
-    width = 600 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+var margin = {top: 30, right: 50, bottom: 30, left: 80},
+    width = 600,
+    height = 600;
 
 var x = d3.scale.linear()
     .range([0, width]);
@@ -11,6 +11,7 @@ var y = d3.scale.linear()
 var svg = d3.select("#plot").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " +(height + margin.top + margin.bottom))
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -30,10 +31,10 @@ d3.tsv("light_times.tsv", function(error, data) {
   if (error) throw error;
 
   // // Add the points!
-  svg.selectAll(".point")
+  svg.selectAll(".lightlight")
       .data(data)
       .enter().append("line")
-      .attr("class", "point")
+      .attr("class", "lightlight")
       .attr("stroke-width", .5)
       .attr("stroke-opacity", 1)
       .attr("stroke", "#a3fca2")
@@ -63,4 +64,27 @@ d3.tsv("light_times.tsv", function(error, data) {
           temp_date = new Date(d.Time);
           return (markHeight*(date_diff_indays(firstDate, d.Time))+markHeight);
       });
+      //Add axes?
+      var x_axisData = [
+          { "cx": 0, "cy": -10, "displayText":"12am"},
+          { "cx": (2/7.5)*width, "cy": -10, "displayText":"2am"},
+          { "cx": (4/7.5)*width, "cy": -10, "displayText":"4am"},
+          { "cx": (6/7.5)*width, "cy": -10, "displayText":"6am"},
+          { "cx": width, "cy": -10, "displayText":"7:30am"}];
+
+
+      var x_axis_text = svg.selectAll("text")
+                              .data(x_axisData)
+                              .enter()
+                              .append("text");
+
+      var x_axis_textLabels = x_axis_text
+                       .attr("x", function(d) { return d.cx; })
+                       .attr("y", function(d) { return d.cy; })
+                       .text( function (d) { return d.displayText; })
+                       .attr("text-anchor", "middle")
+                       .attr("alignment-baseline", "bottom")
+                       .attr("font-family", "sans-serif")
+                       .attr("font-size", "16px")
+                       .attr("fill", "#000");
 });

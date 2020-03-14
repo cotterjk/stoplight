@@ -7,3 +7,33 @@ body {
     stroke: #000;
     shape-rendering: crispEdges;
 }
+.textframe{
+    width: 35em;
+    margin: auto;
+    background: blue;
+}
+svg{
+    margin: auto;
+    background: orange;
+    display: block;
+}
+
+p {
+    font-size: 22px;
+}
+
+@media only screen and (max-width: 768px){
+    body {
+        padding:20px;
+    }
+    .textframe {
+        width: 100%;
+    }
+    p {
+        font-size: 18px;
+    }
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
