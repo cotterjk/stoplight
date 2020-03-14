@@ -86,5 +86,5 @@ d3.tsv("light_times.tsv", function(error, data) {
                        .attr("alignment-baseline", "bottom")
                        .attr("font-family", "sans-serif")
                        .attr("font-size", "16px")
-                       .attr("fill", "#000");
+                       .attr("fill", "#bbb");
 });

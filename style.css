@@ -1,5 +1,7 @@
 body {
       background-color: #47140f;
+      margin-top:80px;
+      margin-bottom:100px;
 }
 .axis path,
 .axis line {
@@ -10,27 +12,37 @@ body {
 .textframe{
     width: 35em;
     margin: auto;
-    background: blue;
 }
 svg{
     margin: auto;
-    background: orange;
     display: block;
 }
 
+h1 {
+    font-size: 40px;
+    font-family: 'Work Sans', sans-serif;
+    color:#bbb;
+    font-weight: 600;
+}
+
 p {
-    font-size: 22px;
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.4em;
+    color:#bbb;
+    font-weight: 300;
 }
 
 @media only screen and (max-width: 768px){
     body {
         padding:20px;
+        margin-top: 0px;
     }
     .textframe {
         width: 100%;
     }
     p {
-        font-size: 18px;
+        font-size: 16px;
     }
     svg {
         width: 100%;
