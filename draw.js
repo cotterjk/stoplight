@@ -31,10 +31,10 @@ d3.tsv("light_times.tsv", function(error, data) {
   if (error) throw error;
 
   // // Add the points!
-  svg.selectAll(".lightlight")
+  svg.selectAll(".lightline")
       .data(data)
       .enter().append("line")
-      .attr("class", "lightlight")
+      .attr("class", "lightline")
       .attr("stroke-width", .5)
       .attr("stroke-opacity", 1)
       .attr("stroke", "#a3fca2")
