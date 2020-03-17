@@ -29,6 +29,7 @@ svg.append("rect")
       .attr("height", height)
       .attr("stroke-width", 1)
       .attr("stroke", "white")
+      .attr("stroke-opacity", 0.3)
       .attr("fill", "none");
 
 d3.tsv("light_times.tsv", function(error, data) {
