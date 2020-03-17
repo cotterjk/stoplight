@@ -27,7 +27,7 @@ svg.append("rect")
       .attr("y", 0)
       .attr("width", width)
       .attr("height", height)
-      .attr("stroke-width", 0.5)
+      .attr("stroke-width", 1)
       .attr("stroke", "white")
       .attr("fill", "none");
 
@@ -45,7 +45,7 @@ d3.tsv("light_times.tsv", function(error, data) {
       .data(data)
       .enter().append("line")
       .attr("class", "lightline")
-      .attr("stroke-width", .5)
+      .attr("stroke-width", 1)
       .attr("stroke-opacity", 1)
       .attr("stroke", "#a3fca2")
       .attr("x1", function(d) {
