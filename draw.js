@@ -21,6 +21,15 @@ var date_diff_indays = function(date1, date2) {
     return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
+//put a border around the chart
+svg.append("rect")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", width)
+      .attr("height", height)
+      .attr("stroke-width", 0.5)
+      .attr("stroke", "#a3fca2")
+      .attr("fill", "none");
 
 d3.tsv("light_times.tsv", function(error, data) {
     var firstDate = new Date(data[0].Time);
@@ -29,6 +38,7 @@ d3.tsv("light_times.tsv", function(error, data) {
     var markHeight = height*1.0/(numDaysRecorded+1);
 
   if (error) throw error;
+
 
   // // Add the points!
   svg.selectAll(".lightline")
