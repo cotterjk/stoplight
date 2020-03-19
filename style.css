@@ -31,7 +31,36 @@ p {
     line-height: 1.4em;
     color:#bbb;
     font-weight: 300;
+    margin-top:1.4em;
 }
+
+a {
+    text-decoration: none;
+    color: #a3fca2;
+}
+
+a:hover {
+    opacity: 0.3;
+}
+
+.about-image {
+
+}
+
+.logo-container {
+    display: block;
+    width: 70px;
+    margin: 64px auto;
+}
+
+svg.logo {
+    stroke: #a3fca2;
+}
+
+svg.logo:hover {
+    stroke: white;
+}
+
 
 @media only screen and (max-width: 768px){
     body {
@@ -47,5 +76,9 @@ p {
     svg {
         width: 100%;
         height: 100%;
+    }
+
+    .about-image {
+
     }
 }
