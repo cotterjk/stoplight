@@ -53,6 +53,10 @@ a:hover {
     margin: 64px auto;
 }
 
+#plotframe {
+    margin: 30px 0px;
+}
+
 svg.logo {
     stroke: #a3fca2;
 }
