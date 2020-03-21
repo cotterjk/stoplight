@@ -44,7 +44,9 @@ a:hover {
 }
 
 .about-image {
-
+    width:60%;
+    display: block;
+    margin: 50px auto;
 }
 
 .logo-container {
@@ -83,6 +85,8 @@ svg.logo:hover {
     }
 
     .about-image {
-
+        width:100%;
+        display: block;
+        margin: 20px auto;
     }
 }

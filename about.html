@@ -19,27 +19,27 @@
 
         <p>I got <a href="https://apps.apple.com/us/app/ip-cam/id333208495#?platform=iphone">an app</a> that turns my old iPhone into a webcam. It can stream the video feed to anything on my wifi network, so I can embed it in a webpage, as long as I load it while I’m in my house. I taped the phone to my bedroom window:</p>
 
-        <img class="about-image" src="#">
+        <img class="about-image" src="assets/windowphone.jpg">
 
         <p>On the webpage that displays the phone video feed, I used <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData">a Javascript method</a> that gets the RGB pixel values from a section of the video feed frame. I highlighted a tiny crop where the clearest stoplight was visible:</p>
 
-        <img class="about-image" src="#">
+        <img class="about-image" src="assets/lights.png">
 
         <p>To me, the most interesting part was writing a test for these RGB values, quantifying “did this just turn red?” for every frame of this peephole. This is the closest I’ve come to building anything related to computer vision. Every time this area turned sufficiently red, I recorded a timestamp. I ran it while I slept.</p>
 
         <p>My browser console output looks like:</p>
 
-        <img class="about-image" src="#">
+        <img class="about-image" src="assets/console.png">
 
-        <p>Clean up with Find/Replace.</p>
+        <p>Clean up with Find/Replace:</p>
 
-        <img class="about-image" src="#">
+        <img class="about-image" src="assets/lighttimes.png">
 
         <p>I use another Javascript file (using d3.js) to split each datetime up into its time (for the x-axis) and date (for the y-axis) and draw the chart with those coordinates. This is really just a scatterplot with long sticks instead of dots.</p>
 
-        <p><a href="index.html">← back</a></p>
-
         <img class="about-image" src="#">
+
+        <p><a href="index.html">← back</a></p>
 
     </div>
 </body>
