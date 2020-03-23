@@ -75,7 +75,8 @@ d3.tsv("light_times.tsv", function(error, data) {
           temp_date = new Date(d.Time);
           return (markHeight*(date_diff_indays(firstDate, d.Time))+markHeight);
       });
-      //Add axes?
+
+      //x-axis (times)
       var x_axisData = [
           { "cx": 0, "cy": -10, "displayText":"12am"},
           { "cx": (2/7.5)*width, "cy": -10, "displayText":"2am"},
@@ -98,4 +99,19 @@ d3.tsv("light_times.tsv", function(error, data) {
                        .attr("font-family", "sans-serif")
                        .attr("font-size", "16px")
                        .attr("fill", "#bbb");
+      //y-axis (day names)
+      var y_axis_text = svg.selectAll("text")
+                               .data(data)
+                               .enter()
+                               .append("text");
+
+      var y_axis_textLabels = y_axis_text
+                        .attr("x", -20)
+                        .attr("y", 0)
+                        .text( function (d) { return d.Time; })
+                        .attr("text-anchor", "middle")
+                        .attr("alignment-baseline", "middle")
+                        .attr("font-family", "sans-serif")
+                        .attr("font-size", "16px")
+                        .attr("fill", "#bbb");
 });
