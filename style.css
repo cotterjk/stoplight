@@ -71,7 +71,7 @@ div.tooltip {
     position: absolute;
     text-align: center;
     font: 1em sans-serif;
-    color: white;
+    color: #bbbbbb;
     pointer-events: none;
 }
 
