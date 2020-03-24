@@ -83,9 +83,9 @@ d3.tsv("light_times.tsv", function(error, data) {
             div.transition()
                 .duration(50)
                 .style("opacity", .9);
-            div	.html(d.Time)
+            div	.html(temp_date.getHours() + ":" + temp_date.getMinutes() + ":" + getSeconds())
                 .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 50) + "px");
+                .style("top", (d3.event.pageY) + "px");
             })
         .on("mouseout", function(d) {
             div.transition()
