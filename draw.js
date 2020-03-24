@@ -25,6 +25,15 @@ var date_diff_indays = function(date1, date2) {
     return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
+var getMinutesZeroed = function(dt)
+{
+  return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+}
+var getSecondsZeroed = function(dt)
+{
+  return (dt.getSeconds() < 10 ? '0' : '') + dt.getSeconds();
+}
+
 //put a border around the chart
 svg.append("rect")
       .attr("x", 0)
@@ -50,7 +59,7 @@ d3.tsv("light_times.tsv", function(error, data) {
       .data(data)
       .enter().append("line")
       .attr("class", "lightline")
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 1)
       .attr("stroke-opacity", 1)
       .attr("stroke", "#a3fca2")
       .attr("x1", function(d) {
@@ -83,9 +92,9 @@ d3.tsv("light_times.tsv", function(error, data) {
             div.transition()
                 .duration(50)
                 .style("opacity", .9);
-            div	.html(temp_date.getHours() + ":" + temp_date.getMinutes() + ":" + temp_date.getSeconds())
+            div	.html(temp_date.getHours() + ":" + temp_date.getMinutesZeroed() + ":" + temp_date.getSecondsZeroed())
                 .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY-20) + "px");
+                .style("top", (d3.event.pageY-30) + "px");
             })
         .on("mouseout", function(d) {
             div.transition()
