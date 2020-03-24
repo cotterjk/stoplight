@@ -108,14 +108,14 @@ d3.tsv("light_times.tsv", function(error, data) {
       var y_axis_textLabels = y_axis_text
                         .attr("x", -20)
                         .attr("y", function (d) {
-                            return markHeight*(date_diff_indays(firstDate, d.Time));
+                            return (1.5)*markHeight*(date_diff_indays(firstDate, d.Time));
                         })
                         .text( function (d) {
                             //TODO: parse day of the week, month name, from MM/DD/YYYY
                             temp_date = new Date(d.Time);
-                            return (temp_date.getDate());
+                            return (temp_date.getMonth() + " / " + temp_date.getDate() + " / " + temp_date.getFullYear());
                         })
-                        .attr("text-anchor", "middle")
+                        .attr("text-anchor", "right")
                         .attr("alignment-baseline", "middle")
                         .attr("font-family", "sans-serif")
                         .attr("font-size", "16px")
