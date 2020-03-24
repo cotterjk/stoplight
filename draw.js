@@ -15,7 +15,7 @@ var svg = d3.select("#plot").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var div = d3.select("#plot").append("div")
+var div = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
