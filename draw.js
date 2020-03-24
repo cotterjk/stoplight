@@ -107,12 +107,13 @@ d3.tsv("light_times.tsv", function(error, data) {
 
       var y_axis_textLabels = y_axis_text
                         .attr("x", -20)
-                        //TODO: position vertically from day 1
-                        //HINT that date is already parsed from string for placement above
-                        .attr("y", 0)
+                        .attr("y", function (d) {
+                            return markHeight*(date_diff_indays(firstDate, d.Time));
+                        })
                         .text( function (d) {
                             //TODO: parse day of the week, month name, from MM/DD/YYYY
-                            return d.Time;
+                            temp_date = new Date(d.Time);
+                            return (temp_date.getDate());
                         })
                         .attr("text-anchor", "middle")
                         .attr("alignment-baseline", "middle")
