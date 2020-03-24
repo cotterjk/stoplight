@@ -25,12 +25,11 @@ var date_diff_indays = function(date1, date2) {
     return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
 }
 
-var getMinutesZeroed = function(dt)
-{
+var getMinutesZeroed = function(dt) {
   return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
 }
-var getSecondsZeroed = function(dt)
-{
+
+var getSecondsZeroed = function(dt) {
   return (dt.getSeconds() < 10 ? '0' : '') + dt.getSeconds();
 }
 
@@ -92,7 +91,7 @@ d3.tsv("light_times.tsv", function(error, data) {
             div.transition()
                 .duration(50)
                 .style("opacity", .9);
-            div	.html(temp_date.getHours() + ":" + temp_date.getMinutesZeroed() + ":" + temp_date.getSecondsZeroed())
+            div	.html(temp_date.getHours() + ":" + getMinutesZeroed(temp_date) + ":" + getSecondsZeroed(temp_date))
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY-30) + "px");
             })
