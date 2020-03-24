@@ -15,6 +15,10 @@ var svg = d3.select("#plot").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var div = d3.select("#plot").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
 var date_diff_indays = function(date1, date2) {
     dt1 = new Date(date1);
     dt2 = new Date(date2);
@@ -74,7 +78,20 @@ d3.tsv("light_times.tsv", function(error, data) {
       .attr("y2",   function(d) {
           temp_date = new Date(d.Time);
           return (markHeight*(date_diff_indays(firstDate, d.Time))+markHeight);
-      });
+      })
+      .on("mouseover", function(d) {
+            div.transition()
+                .duration(300)
+                .style("opacity", .9);
+            div	.html(formatTime(d.Time))
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            div.transition()
+                .duration(300)
+                .style("opacity", 0);
+        });
 
       //x-axis (times)
       var x_axisData = [
