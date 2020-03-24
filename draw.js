@@ -94,6 +94,9 @@ d3.tsv("light_times.tsv", function(error, data) {
             div	.html(temp_date.getHours() + ":" + getMinutesZeroed(temp_date) + ":" + getSecondsZeroed(temp_date))
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY-30) + "px");
+                this.parentNode.parentNode.appendChild(this.parentNode);//the path group is on the top with in its parent group
+    this.parentNode.parentNode.parentNode.appendChild(this.parentNode.parentNode);//the parent group is on the top with in its parent group
+    d3.select(this).style('stroke', 'black');
             })
         .on("mouseout", function(d) {
             div.transition()
