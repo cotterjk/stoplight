@@ -31,7 +31,7 @@ svg.append("rect")
       .attr("y", 0)
       .attr("width", width)
       .attr("height", height)
-      .attr("stroke-width", 1)
+      .attr("stroke-width", 3)
       .attr("stroke", "white")
       .attr("stroke-opacity", 0.3)
       .attr("fill", "none");
