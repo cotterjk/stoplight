@@ -106,7 +106,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                                .append("text");
 
       var y_axis_textLabels = y_axis_text
-                        .attr("x", -40)
+                        .attr("x", -10)
                         .attr("y", function (d) {
                             return (markHeight*(date_diff_indays(firstDate, d.Time))+(0.5*markHeight));
                         })
@@ -115,7 +115,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                             temp_date = new Date(d.Time);
                             return (temp_date.getMonth() + " / " + temp_date.getDate());
                         })
-                        .attr("text-anchor", "right")
+                        .attr("text-anchor", "left")
                         .attr("alignment-baseline", "middle")
                         .attr("font-family", "sans-serif")
                         .attr("font-size", "16px")
