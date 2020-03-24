@@ -115,7 +115,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                             temp_date = new Date(d.Time);
                             return (temp_date.getMonth() + " / " + temp_date.getDate());
                         })
-                        .attr("text-anchor", "left")
+                        .attr("text-anchor", "end")
                         .attr("alignment-baseline", "middle")
                         .attr("font-family", "sans-serif")
                         .attr("font-size", "16px")
