@@ -31,7 +31,7 @@ svg.append("rect")
       .attr("y", 0)
       .attr("width", width)
       .attr("height", height)
-      .attr("stroke-width", 3)
+      .attr("stroke-width", 1)
       .attr("stroke", "white")
       .attr("stroke-opacity", 0.3)
       .attr("fill", "none");
@@ -50,7 +50,7 @@ d3.tsv("light_times.tsv", function(error, data) {
       .data(data)
       .enter().append("line")
       .attr("class", "lightline")
-      .attr("stroke-width", 1)
+      .attr("stroke-width", 3)
       .attr("stroke-opacity", 1)
       .attr("stroke", "#a3fca2")
       .attr("x1", function(d) {
@@ -85,7 +85,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                 .style("opacity", .9);
             div	.html(temp_date.getHours() + ":" + temp_date.getMinutes() + ":" + temp_date.getSeconds())
                 .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY-10) + "px");
+                .style("top", (d3.event.pageY-20) + "px");
             })
         .on("mouseout", function(d) {
             div.transition()
