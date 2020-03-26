@@ -1,6 +1,6 @@
 var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-var margin = {top: 30, right: 50, bottom: 30, left: 80},
+var margin = {top: 30, right: 50, bottom: 30, left: 90},
     width = 600,
     height = 600;
 
