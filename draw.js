@@ -129,20 +129,6 @@ d3.tsv("light_times.tsv", function(error, data) {
                        .attr("font-family", "sans-serif")
                        .attr("font-size", "16px")
                        .attr("fill", "#bbb");
-
-
-       //y-axis (date covers)
-       svg.selectAll(".date-cover")
-           .data(data)
-           .enter().append("rect")
-           .attr("class", "date-cover")
-           .attr("fill", "#47140f")
-           .attr("x", -80)
-           .attr("y", function (d) {
-               return (markHeight*date_diff_indays(firstDate, d.Time));
-           })
-           .attr("width", 80)
-           .attr("height", markHeight)
       //y-axis (day names)
       var y_axis_text = svg.selectAll("text")
                                .data(data)
@@ -163,7 +149,9 @@ d3.tsv("light_times.tsv", function(error, data) {
                         .attr("alignment-baseline", "middle")
                         .attr("font-family", "sans-serif")
                         .attr("font-size", "16px")
-                        .attr("fill", "#bbb");
+                        .attr("fill", "#bbb")
+                        .attr("stroke", "blue")
+                        .attr("stroke-width", "10px");
 
 
         });
