@@ -28,7 +28,7 @@ var date_diff_indays = function(date1, date2) {
 }
 
 var getHoursWithMidnight = function(dt) {
-  return (dt.getHours() == 0 ? '12' : dt.getHours();
+  return dt.getHours() == 0 ? '12' : dt.getHours();
 }
 
 var getMinutesZeroed = function(dt) {
