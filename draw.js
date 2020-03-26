@@ -1,3 +1,5 @@
+var dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 var margin = {top: 30, right: 50, bottom: 30, left: 80},
     width = 600,
     height = 600;
@@ -143,7 +145,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                         .text( function (d) {
                             //TODO: parse day of the week, month name, from MM/DD/YYYY
                             temp_date = new Date(d.Time);
-                            return ((temp_date.getMonth()+1) + " / " + temp_date.getDate());
+                            return (dayNames[temp_date.getDay()]+ " " + (temp_date.getMonth()+1) + " / " + temp_date.getDate());
                         })
                         .attr("text-anchor", "end")
                         .attr("alignment-baseline", "middle")
