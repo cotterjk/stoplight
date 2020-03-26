@@ -136,12 +136,12 @@ d3.tsv("light_times.tsv", function(error, data) {
            .data(data)
            .enter().append("rect")
            .attr("class", "date-cover")
-           .attr("fill", "#aaeeff")
-           .attr("x", -10)
+           .attr("fill", "#47140f")
+           .attr("x", -80)
            .attr("y", function (d) {
                return (markHeight*date_diff_indays(firstDate, d.Time));
            })
-           .attr("width", 20)
+           .attr("width", 80)
            .attr("height", markHeight)
       //y-axis (day names)
       var y_axis_text = svg.selectAll("text")
