@@ -129,7 +129,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                        .attr("text-anchor", "middle")
                        .attr("alignment-baseline", "bottom")
                        .attr("font-family", "sans-serif")
-                       .attr("font-size", "16px")
+                       .attr("font-size", "14px")
                        .attr("fill", "#bbb");
       //y-axis (day names)
       var y_axis_text = svg.selectAll("text")
@@ -150,7 +150,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                         .attr("text-anchor", "end")
                         .attr("alignment-baseline", "middle")
                         .attr("font-family", "sans-serif")
-                        .attr("font-size", "16px")
+                        .attr("font-size", "14px")
                         .attr("fill", "#bbb")
                         .attr("stroke", "#47140f")
                         .attr("stroke-width", "10px");
