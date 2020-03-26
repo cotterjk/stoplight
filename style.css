@@ -75,6 +75,10 @@ div.tooltip {
     pointer-events: none;
 }
 
+text {
+    paint-order: stroke fill;
+}
+
 
 @media only screen and (max-width: 768px){
     body {

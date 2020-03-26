@@ -150,7 +150,7 @@ d3.tsv("light_times.tsv", function(error, data) {
                         .attr("font-family", "sans-serif")
                         .attr("font-size", "16px")
                         .attr("fill", "#bbb")
-                        .attr("stroke", "blue")
+                        .attr("stroke", "#47140f")
                         .attr("stroke-width", "10px");
 
 
